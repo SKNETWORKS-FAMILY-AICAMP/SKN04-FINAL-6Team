@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "PaperMap",
+    "description": "Timeline for NLP Papers",
+    "version": "1.0",
+    "permissions":[ 
+      "activeTab",
+      "scripting",
+      "storage"
+    ],
+    "action": {
+      "default_popup": "hello.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+      "matches": ["*://scholar.google.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+      },
+      {
+      "matches": ["*://scholar.google.com/*"],
+      "js": ["display.js"],
+      "run_at": "document_idle"
+      }
+    ] 
+  }
